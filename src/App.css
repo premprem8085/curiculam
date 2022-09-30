@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+body{
+  background: linear-gradient(90deg, rgba(235,53,197,0.969625350140056) 26%, rgba(44,41,219,0.958420868347339) 74%);
+}
+
+form{
+  width: 80vw;
+  height:60vh;
+}

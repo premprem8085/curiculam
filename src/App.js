@@ -1,12 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
+import Login from "./Component/Login";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello welcome to react</h1>
-      </header>
+      <Login />
     </div>
   );
 }
