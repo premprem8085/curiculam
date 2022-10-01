@@ -1,11 +1,12 @@
 import React from "react";
-import "../bootstrap/bootstrap.min.css";
+
 import useForm from "../Hooks/useForm";
+import Validate from "../Hooks/Validate";
 function Login() {
-  const { handleChange, values } = useForm();
+  const { handleChange, values, handleSubmit, error } = useForm(Validate);
   return (
     <div className="container  text-white">
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={handleSubmit}>
         <div className="form-input">
           <labe className="lable me-5">firstName:</labe>
           <input
@@ -14,6 +15,7 @@ function Login() {
             onChange={handleChange}
             value={values.username}
           ></input>
+          {error.username && <p>{error.username}</p>}
         </div>
         <div className="form-input">
           <labe className="lable me-5">Email:</labe>
@@ -23,6 +25,7 @@ function Login() {
             onChange={handleChange}
             value={values.email}
           ></input>
+          {error.email && <p>{error.email}</p>}
         </div>
         <div className="form-input">
           <labe className="lable me-5">passWord:</labe>
@@ -32,6 +35,7 @@ function Login() {
             value={values.password}
             onChange={handleChange}
           ></input>
+          {error.password && <p>{error.password}</p>}
         </div>
         <div className="form-input">
           <labe className="lable me-5">Confirm password:</labe>
@@ -41,6 +45,7 @@ function Login() {
             onChange={handleChange}
             value={values.confirmPassword}
           ></input>
+          {error.confirmPassword && <p>{error.confirmPassword}</p>}
         </div>
         <button type="submit">Sign up</button>
       </form>

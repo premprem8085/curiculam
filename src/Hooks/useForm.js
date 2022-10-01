@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Validate from "./Validate";
 
 const useForm = () => {
   const [values, setvalues] = useState({
@@ -7,6 +8,8 @@ const useForm = () => {
     password: "",
     confirmPassword: "",
   });
+
+  const [first, setfirst] = useState(false);
 
   const [error, seterror] = useState({});
 
@@ -20,7 +23,13 @@ const useForm = () => {
       };
     });
   };
-  return { handleChange, values };
+  console.log(values);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    seterror(Validate(values));
+  };
+
+  return { handleChange, values, handleSubmit, error };
 };
 
 export default useForm;
